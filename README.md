@@ -1,4 +1,14 @@
-*Note: Tested on the Arduino Nano 33 IoT, Adafruit Itsy Bitsy M0, and the Adafruit Trinket M0; untested on the Arduino Zero, the Arduino MKR series, and the Adafruit Feather M0, but should work. Let me know about problems.*
+*** Changes to the Original ***
+Pin Mapping for Adafruit Feather M0 Adalogger (tested)
+    TCC0: pins 5, 6, 10, 12
+    TCC1: pins 0, 1 (Rx, Tx)
+    TCC2: pins 11, 13
+
+because some of the pins are not accessible on the board. 
+
+keep in mind that the resolution is limited to 1000 (unless you change it yourself) and always goes from 0-1000 even if the actual resolution is lower (will cause rounding errors)
+
+*Note: Tested on the Arduino Nano 33 IoT, Adafruit Itsy Bitsy M0, and the Adafruit Trinket M0, and Arduino Feather M0 (on the accessible pins only); untested on the Arduino Zero, the Arduino MKR series, but should work. Let me know about problems.*
 
 ## A fast PWM library for SAMD21G-based Arduinos
 
