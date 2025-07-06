@@ -1,10 +1,15 @@
 *** Changes to the Original ***
-Pin Mapping for Adafruit Feather M0 Adalogger (tested)
+Pin Mapping changed for:
+ARDUINO_SAMD_ZERO
+ADAFRUIT_ITSYBITSY_M0
+ARDUINO_SAMD_FEATHER_M0
+// Custom mapping for Adafruit Feather M0 (incl. Adalogger)
+
     TCC0: pins 5, 6, 10, 12
     TCC1: pins 0, 1 (Rx, Tx)
     TCC2: pins 11, 13
 
-because some of the pins are not accessible on the board. 
+because some of the pins are not accessible on the Adafruit Feather M0 Adalogger, tested for all pins on the Adafruit Feather M0 Adalogger
 
 keep in mind that the resolution is limited to 1000 (unless you change it yourself) and always goes from 0-1000 even if the actual resolution is lower (will cause rounding errors)
 
