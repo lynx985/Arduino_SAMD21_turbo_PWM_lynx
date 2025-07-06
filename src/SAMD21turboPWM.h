@@ -68,22 +68,27 @@ static const PinLookup pinTable[] = {
 #elif defined (ARDUINO_SAMD_ZERO) || \
       defined (ADAFRUIT_ITSYBITSY_M0) || \
       defined (ARDUINO_SAMD_FEATHER_M0)
+// Custom mapping for Adafruit Feather M0 (incl. Adalogger)
+// TCC0: pins 5, 6, 10, 12
+// TCC1: pins 0, 1 (Rx, Tx)
+// TCC2: pins 11, 13
 //Table begin
-{-1, 0, 0, 0, 0, 0},
-{-1, 0, 0, 0, 0, 0},
-{-1, 0, 0, 0, 0, 0},
-{ 3, PORTA,  9, 0, &REG_TCC0_CCB1, PORT_PMUX_PMUXO_E},
-{ 4, PORTA,  8, 0, &REG_TCC0_CCB0, PORT_PMUX_PMUXE_E},
-{-1, 0, 0, 0, 0, 0},
-{-1, 0, 0, 0, 0, 0},
-{-1, 0, 0, 0, 0, 0},
-{ 8, PORTA,  6, 1, &REG_TCC1_CCB0, PORT_PMUX_PMUXE_E},
-{ 9, PORTA,  7, 1, &REG_TCC1_CCB1, PORT_PMUX_PMUXO_E},
-{10, PORTA, 18, 0, &REG_TCC0_CCB2, PORT_PMUX_PMUXE_F},
-{11, PORTA, 16, 2, &REG_TCC2_CCB0, PORT_PMUX_PMUXE_E},
-{12, PORTA, 19, 0, &REG_TCC0_CCB3, PORT_PMUX_PMUXO_F},
-{13, PORTA, 17, 2, &REG_TCC2_CCB1, PORT_PMUX_PMUXO_E}
+{ 0,  PORTA, 11, 1, &REG_TCC1_CCB1, PORT_PMUX_PMUXO_E},    // RX, TCC1/WO[1]
+{ 1,  PORTA, 10, 1, &REG_TCC1_CCB0, PORT_PMUX_PMUXE_E},    // TX, TCC1/WO[0]
+{-1,  0,     0,  0, 0,                0},                  // (no mapping for 2)
+{-1,  0,     0,  0, 0,                0},                  // (no mapping for 3)
+{-1,  0,     0,  0, 0,                0},                  // (no mapping for 4)
+{ 5,  PORTA, 15, 0, &REG_TCC0_CCB1, PORT_PMUX_PMUXO_F},    // D5,  TCC0/WO[1]
+{ 6,  PORTA, 20, 0, &REG_TCC0_CCB2, PORT_PMUX_PMUXE_F},    // D6,  TCC0/WO[2]
+{-1,  0,     0,  0, 0,                0},                  // (no mapping for 7)
+{-1,  0,     0,  0, 0,                0},                  // (no mapping for 8)
+{-1,  0,     0,  0, 0,                0},                  // (no mapping for 9)
+{10,  PORTA, 18, 0, &REG_TCC0_CCB2, PORT_PMUX_PMUXE_F},    // D10, TCC0/WO[2]
+{11,  PORTA, 16, 2, &REG_TCC2_CCB0, PORT_PMUX_PMUXE_E},    // D11, TCC2/WO[0]
+{12,  PORTA, 19, 0, &REG_TCC0_CCB3, PORT_PMUX_PMUXO_F},    // D12, TCC0/WO[3]
+{13,  PORTA, 17, 2, &REG_TCC2_CCB1, PORT_PMUX_PMUXO_E}     // D13, TCC2/WO[1]
 //Table end
+
 
 #elif defined (ARDUINO_SAMD_MKRZERO) || \
       defined (ARDUINO_SAMD_MKR1000) || \
